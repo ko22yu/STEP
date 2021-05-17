@@ -35,8 +35,8 @@ def main():
         testcase[i] = ''.join(sorted(word))  # testcaseの単語自身をソートした
 
 
-    # 事前にソートした辞書を読み込む
-    f = open("sort_words.txt", "r")
+    # 事前にスコア順にソートした辞書を読み込む
+    f = open("sort_words2.txt", "r")
     try:
         new_dictionary = f.readlines()
     finally:
@@ -45,6 +45,7 @@ def main():
         new_dictionary[i] = words.split()
 
 
+    # anagramの探索
     for t_word in testcase:
         max_anagram = ""
         t_word_set = set(t_word)
@@ -58,9 +59,9 @@ def main():
                     if t_word_counter[d_char] < d_word_counter[d_char]:
                         exist = False
                         break
-                if exist:
-                    if score_check(max_anagram) < score_check(d_word[0]):
-                        max_anagram = d_word[1]
+                if exist:  # new_dictionaryはスコア順にソートしてあるので、1番目に見つけたanagramが最もスコアが高いanagram
+                    max_anagram = d_word[1]
+                    break
         print(max_anagram)
         fout.write(max_anagram)
         fout.write("\n")
