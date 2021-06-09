@@ -14,7 +14,7 @@
 ### 実行結果
 例) `$ python3 solver.py input_4.csv output_4.csv`
 
-<img src = "/Users/izumikoyuki/STEP/week5/TSP_output_4.png" alt = "結果">
+<img src = "TSP_output_4.png" alt = "結果">
 
 
 ### コメント
